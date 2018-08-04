@@ -16,10 +16,6 @@ service 'apache2' do
   action %i[enable start]
 end
 
-file '/var/www/html/index.html' do
-  content '<html>
-  <body>
-    <h1>hello world</h1>
-  </body>
-</html>'
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
 end
